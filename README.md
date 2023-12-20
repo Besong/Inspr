@@ -14,10 +14,10 @@ Below is the low-fidelity sketch of the UI:
 [﻿Low-fidelity sketches of the UI](https://app.eraser.io/workspace/1vmLk4d4QN37lefTBwWQ?elements=IkcU0wRczmd33L7DodsIGw) 
 
 ## Features and Functionality.
-- **Show Quotes: **Display a readable list of inspirational quotes and see individual quotes with the author's name.
+- **Show Quotes:** Display a readable list of inspirational quotes and see individual quotes with the author's name.
 ## List of Technologies.
-- [﻿**ktor:**](https://ktor.io/)** **Asynchronous HTTP client framework built by JetBrains for performing network calls.
-- [﻿**Jetpack Compose:**](https://developer.android.com/jetpack/compose)** **Declarative UI toolkit for creating native UI on Android.
+- [**﻿ktor**](https://ktor.io/): Asynchronous HTTP client framework built by JetBrains for performing network calls.
+- [﻿**Jetpack Compose**](https://developer.android.com/jetpack/compose): Declarative UI toolkit for creating native UI on Android.
 
 
 
