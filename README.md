@@ -3,7 +3,7 @@
 ## Description
 Inspr is an app designed to help people start their day positively through inspirational quotes. 
 
-## User Flow 
+## User Flow
 Below is the user flow for Inspr:
 
 [﻿User Flow](https://app.eraser.io/workspace/1vmLk4d4QN37lefTBwWQ?elements=tFEd9urtTLsaSXPc6TxQGQ) 
@@ -16,8 +16,8 @@ Below is the low-fidelity sketch of the UI:
 ## Features and Functionality.
 - **Show Quotes:** Display a readable list of inspirational quotes and see individual quotes with the author's name.
 ## List of Technologies.
-- [**﻿ktor**](https://ktor.io/): Asynchronous HTTP client framework built by JetBrains for performing network calls.
-- [﻿**Jetpack Compose**](https://developer.android.com/jetpack/compose): Declarative UI toolkit for creating native UI on Android.
+- [﻿**﻿ktor**](https://ktor.io/) : Asynchronous HTTP client framework built by JetBrains for performing network calls.
+- [﻿Jetpack Compose](https://developer.android.com/jetpack/compose) : Declarative UI toolkit for creating native UI on Android.
 
 
 
