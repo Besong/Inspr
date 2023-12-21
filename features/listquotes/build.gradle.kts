@@ -19,12 +19,21 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+
+        }
+    }
+    kotlin {
+        jvmToolchain {
+            languageVersion.set(JavaLanguageVersion.of("17"))
+        }
     }
 }
 
 dependencies {
-    // listquotes feature doesn't depend on app. Rather, its the opposite.
-    // implementation(project(":app"))
+    // listquotes feature does depend on app for app related settings like application Id.
+    //implementation(project(":app"))
+    implementation(projects.app)
     // implementation "androidx.core:core-ktx:1.12.0"
     implementation(libs.androidx.core.ktx)
     //implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0-RC")
@@ -41,4 +50,5 @@ dependencies {
     androidTestImplementation(libs.androidx.test.espresso)
     //androidTestImplementation("androidx.annotation:annotation:1.6.0")
     androidTestImplementation(libs.androidx.annotation)
+    implementation(libs.androidx.annotation)
 }

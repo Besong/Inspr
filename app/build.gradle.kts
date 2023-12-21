@@ -30,6 +30,7 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {  }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -57,7 +58,7 @@ android {
         //implementation ("androidx.core:core-ktx:1.12.0")
         implementation(libs.androidx.core.ktx)
         //implementation(project(":features:listquotes"))
-        implementation(projects.features)
+        implementation(project(path = ":features:listquotes", configuration = "default"))
         //implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
         implementation(libs.lifecycle.runtime.ktx)
         //implementation("androidx.activity:activity-compose:1.7.2")
