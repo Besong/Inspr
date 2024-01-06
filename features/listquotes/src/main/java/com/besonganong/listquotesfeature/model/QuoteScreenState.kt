@@ -1,11 +1,11 @@
 package com.besonganong.listquotesfeature.model
 
 /**
- * Class defining whether QuotesScreen is:
- * Loading to show quotes, or Has an Error, or Is successfully displaying quotes.
+ *  Class representing the different UI states of QuotesScreen:
+ *  Loading, Error and Success
  */
 sealed class QuotesScreenState {
-    data class Success(var quotes: List<Quote>): QuotesScreenState()
-    data class Error(val errorMsg: String): QuotesScreenState()
-    object Loading: QuotesScreenState()
+    data class Success(val quoteModels: List<QuoteModel>): QuotesScreenState()
+    data object Error: QuotesScreenState()
+    data object Loading: QuotesScreenState()
 }
