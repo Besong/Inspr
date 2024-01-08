@@ -43,7 +43,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
     packaging {
         resources {
@@ -55,38 +55,53 @@ android {
 
     dependencies {
 
-        //implementation ("androidx.core:core-ktx:1.12.0")
-        implementation(libs.androidx.core.ktx)
-        //implementation(project(":features:listquotes"))
+        val composeBom = platform(libs.androidx.compose.bom)
+
+        // Module listquotes
         implementation(project(path = ":features:listquotes", configuration = "default"))
-        //implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+
+        // Kotlin Extension Libraries
         implementation(libs.lifecycle.runtime.ktx)
-        //implementation("androidx.activity:activity-compose:1.7.2")
-        implementation(libs.activity.compose)
-        //implementation(platform("androidx.compose:compose-bom:2023.03.00"))
-        implementation(platform(libs.androidx.compose.bom))
-        //implementation("androidx.compose.ui:ui")
-        implementation(libs.androidx.compose.ui)
-        //implementation("androidx.compose.ui:ui-graphics")
-        implementation(libs.androidx.compose.ui.graphics)
-        //implementation("androidx.compose.ui:ui-tooling-preview")
-        implementation(libs.androidx.composeui.tooling.preview)
-        //implementation("androidx.compose.material3:material3")
-        implementation(libs.androidx.compose.material3)
-        //implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0-RC")
+        implementation(libs.androidx.core.ktx)
+
+        // Coroutines Support
         implementation(libs.ktx.coroutines.android)
-        //testImplementation("junit:junit:4.13.2")
+
+        // Unit Test
         testImplementation(libs.junit)
-        //androidTestImplementation("androidx.test.ext:junit:1.1.5")
+
+        // Integration Test
         androidTestImplementation(libs.androidx.junit)
-        //androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+        //Espresso Test
         androidTestImplementation(libs.androidx.test.espresso)
-        //androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
-        androidTestImplementation(platform(libs.androidx.compose.bom))
-        //androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-        androidTestImplementation(libs.androidx.composeui.test.junit4)
-        //debugImplementation("androidx.compose.ui:ui-tooling")
+
+        // Compose Graphics (e.g Canvas)
+        implementation(libs.androidx.compose.ui.graphics)
+
+        // Compose Integration with Activities
+        implementation(libs.activity.compose)
+
+        // Compose Underlying Toolkit
+        implementation(libs.androidx.compose.ui)
+
+        // Compose Foundation
+        implementation (libs.compose.foundation)
+
+        // Compose Bill of Materials
+        implementation(composeBom)
+        androidTestImplementation(composeBom)
+
+        // Compose Material Design 3
+        implementation(libs.androidx.compose.material3)
+
+        // Compose Android Studio Preview Support
+        implementation(libs.androidx.composeui.tooling.preview)
         debugImplementation(libs.androidx.composeui.tooling)
-        //debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+        // Compose UI Tests
+        androidTestImplementation(libs.androidx.composeui.test.junit4)
         debugImplementation(libs.androidx.composeui.test.manifest)
+
+
     }
