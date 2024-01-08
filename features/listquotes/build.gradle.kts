@@ -1,6 +1,7 @@
 plugins {
     id("com.android.dynamic-feature")
     id("org.jetbrains.kotlin.android")
+    kotlin("plugin.serialization") version "1.9.20"
 }
 android {
     namespace = "com.besonganong.listquotesfeature"
@@ -28,27 +29,69 @@ android {
             languageVersion.set(JavaLanguageVersion.of("17"))
         }
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.4"
+    }
 }
 
 dependencies {
+
+    val composeBom = platform(libs.androidx.compose.bom)
+
     // listquotes feature does depend on app for app related settings like application Id.
-    //implementation(project(":app"))
+    // app Module
     implementation(projects.app)
-    // implementation "androidx.core:core-ktx:1.12.0"
+
+    // Kotlin Extension Libraries
+    implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.androidx.core.ktx)
-    //implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0-RC")
-    implementation(libs.ktx.coroutines.android)
-    //implementation("io.ktor:ktor-client-core:2.3.7")
+
+    // Ktor Libraries
     implementation(libs.ktor.client.core)
-    //implementation("io.ktor:ktor-client-cio:2.3.7")
     implementation(libs.ktor.client.engine)
-    //testImplementation("junit:junit:4.13.2")
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.serialization.json)
+    implementation(libs.ktor.content.negotiation)
+
+    // Compose Graphics (e.g Canvas)
+    implementation(libs.androidx.compose.ui.graphics)
+
+    // Compose Integration with Activities
+    implementation(libs.activity.compose)
+
+    // Compose Underlying Toolkit
+    implementation(libs.androidx.compose.ui)
+
+    // Compose Foundation
+    implementation (libs.compose.foundation)
+
+    // Compose Bill of Materials
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    // Compose Material Design 3
+    implementation(libs.androidx.compose.material3)
+
+    // Compose Android Studio Preview Support
+    implementation(libs.androidx.composeui.tooling.preview)
+    debugImplementation(libs.androidx.composeui.tooling)
+
+    // Compose UI Tests
+    androidTestImplementation(libs.androidx.composeui.test.junit4)
+    debugImplementation(libs.androidx.composeui.test.manifest)
+    // Unit Test
     testImplementation(libs.junit)
-    //androidTestImplementation("androidx.test.ext:junit:1.1.5")
+
+    // Integration Test
     androidTestImplementation(libs.androidx.junit)
-    //androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // Espresso Test
     androidTestImplementation(libs.androidx.test.espresso)
-    //androidTestImplementation("androidx.annotation:annotation:1.6.0")
+
+    // Annotation
     androidTestImplementation(libs.androidx.annotation)
     implementation(libs.androidx.annotation)
 }
