@@ -15,6 +15,7 @@ ktor = "2.3.7"
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx"}
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose"}
+compose-foundation = {group = "androidx.compose.foundation", name = "foundation"}
 androidx-compose-bom= {group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom"}
 androidx-compose-ui = {group = "androidx.compose.ui", name = "ui"}
 androidx-compose-ui-graphics = {group = "androidx.compose.ui", name = "ui-graphics"}
@@ -23,7 +24,10 @@ androidx-composeui-tooling = {group = "androidx.compose.ui", name = "ui-tooling"
 androidx-compose-material3 = {group = "androidx.compose.material3", name = "material3"}
 ktx-coroutines-android = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "ktx-coroutines-android"}
 ktor-client-core = {group = "io.ktor", name = "ktor-client-core", version.ref = "ktor"}
-ktor-client-engine = {group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor"}
+ktor-client-engine = {group = "io.ktor", name = "ktor-client-android", version.ref = "ktor"}
+ktor-client-logging = {group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor"}
+ktor-serialization-json = {group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor"}
+ktor-content-negotiation = {group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor"}
 junit = { group = "junit", name = "junit", version.ref = "junit"}
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit"}
 androidx-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso"}
