@@ -56,6 +56,7 @@ android {
     dependencies {
 
         val composeBom = platform(libs.androidx.compose.bom)
+        val nav_version = "2.7.6"
 
         // Kotlin Extension Libraries
         implementation(libs.lifecycle.runtime.ktx)
@@ -115,4 +116,9 @@ android {
         // Koin Android
         implementation(libs.koin.android)
 
+        // Jetpack Compose Navigation
+        implementation("androidx.navigation:navigation-compose:$nav_version")
+
+        // navigation Module
+        implementation(project(":navigation"))
     }
