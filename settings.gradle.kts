@@ -23,3 +23,4 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "Inspr"
 include(":app")
 include(":features:listquotes")
+include(":navigation")
