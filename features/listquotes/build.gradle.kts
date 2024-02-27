@@ -40,6 +40,7 @@ android {
 dependencies {
 
     val composeBom = platform(libs.androidx.compose.bom)
+    val nav_version = "2.7.6"
 
     // listquotes feature does depend on app for app related settings like application Id.
     // app Module
@@ -100,4 +101,10 @@ dependencies {
 
     // koin Android Jetpack Compose
     implementation(libs.koin.androidx.compose)
+
+    // Jetpack Compose Navigation
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    // navigation Module
+    implementation(project(":navigation"))
 }
