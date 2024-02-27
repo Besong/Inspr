@@ -103,5 +103,10 @@ android {
         androidTestImplementation(libs.androidx.composeui.test.junit4)
         debugImplementation(libs.androidx.composeui.test.manifest)
 
+        // Play Feature Delivery
+        implementation("com.google.android.play:feature-delivery:2.1.0")
+
+        // For Kotlin users, also add the Kotlin extensions library for Play Feature Delivery:
+        implementation("com.google.android.play:feature-delivery-ktx:2.1.0")
 
     }
