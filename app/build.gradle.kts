@@ -61,6 +61,9 @@ android {
         implementation(libs.lifecycle.runtime.ktx)
         implementation(libs.androidx.core.ktx)
 
+        // Reflection Dependency
+        implementation ("org.jetbrains.kotlin:kotlin-reflect:1.9.21")
+
         // Coroutines Support
         implementation(libs.ktx.coroutines.android)
 
