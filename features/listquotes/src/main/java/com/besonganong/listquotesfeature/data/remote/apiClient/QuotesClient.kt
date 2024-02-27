@@ -1,5 +1,6 @@
 package com.besonganong.listquotesfeature.data.remote.apiClient
 
+import android.content.Context
 import com.besonganong.listquotesfeature.model.NewQuoteModel
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
@@ -12,20 +13,29 @@ import kotlinx.serialization.serializer
 /**
  * An Http client responsible for performing network calls.
  */
-val quotesHttpClient = HttpClient(Android) {
+val httpClient: (context: Context) -> HttpClient = {
 
-    // Plugin for content negotiation.
-    install(ContentNegotiation) {
+    HttpClient(Android) {
+        engine {
+            sslManager = {httpsURLConnection ->
+                httpsURLConnection.sslSocketFactory = SslSettings.getSslContext(context = it)?.socketFactory
+            }
+        }
 
-         json(Json {
-            prettyPrint = true
-            isLenient = true
-            ignoreUnknownKeys = true
-        })
+        // Plugin for content negotiation.
+        install(ContentNegotiation) {
 
-        serializer<NewQuoteModel>()
+            json(Json {
+                prettyPrint = true
+                isLenient = true
+                ignoreUnknownKeys = true
+            })
+
+            serializer<NewQuoteModel>()
+
+        }
+
+        // Plugin for Logging at the network side.
+        install(Logging)
     }
-
-    // Plugin for Logging at the network side.
-    install(Logging)
 }
