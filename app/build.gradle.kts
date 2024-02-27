@@ -1,4 +1,4 @@
-
+import org.jetbrains.kotlin.ir.backend.js.compile
 
 plugins {
     id("com.android.application")
@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.besonganong.inspr"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.besonganong.inspr"
@@ -57,9 +57,6 @@ android {
 
         val composeBom = platform(libs.androidx.compose.bom)
 
-        // Module listquotes
-        implementation(project(path = ":features:listquotes", configuration = "default"))
-
         // Kotlin Extension Libraries
         implementation(libs.lifecycle.runtime.ktx)
         implementation(libs.androidx.core.ktx)
@@ -103,5 +100,16 @@ android {
         androidTestImplementation(libs.androidx.composeui.test.junit4)
         debugImplementation(libs.androidx.composeui.test.manifest)
 
+        // Koin Core
+        implementation(libs.koin.core)
+
+        // Koin Test features
+        testImplementation(libs.koin.test)
+
+        // Koin for JUnit 4
+        testImplementation(libs.koin.test.junit4)
+
+        // Koin Android
+        implementation(libs.koin.android)
 
     }
