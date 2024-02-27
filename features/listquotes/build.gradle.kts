@@ -5,7 +5,7 @@ plugins {
 }
 android {
     namespace = "com.besonganong.listquotesfeature"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
@@ -17,7 +17,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro", "proguard-rules-dynamic-features.pro"
             )
         }
         debug {
@@ -94,4 +94,10 @@ dependencies {
     // Annotation
     androidTestImplementation(libs.androidx.annotation)
     implementation(libs.androidx.annotation)
+
+    // Koin for JUnit 4
+    testImplementation(libs.koin.test.junit4)
+
+    // koin Android Jetpack Compose
+    implementation(libs.koin.androidx.compose)
 }
