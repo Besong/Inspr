@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.besonganong.inspr"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.besonganong.inspr"
@@ -57,12 +57,12 @@ android {
 
         val composeBom = platform(libs.androidx.compose.bom)
 
-        // Module listquotes
-        implementation(project(path = ":features:listquotes", configuration = "default"))
-
         // Kotlin Extension Libraries
         implementation(libs.lifecycle.runtime.ktx)
         implementation(libs.androidx.core.ktx)
+
+        // Reflection Dependency
+        implementation ("org.jetbrains.kotlin:kotlin-reflect:1.9.21")
 
         // Coroutines Support
         implementation(libs.ktx.coroutines.android)
@@ -108,5 +108,16 @@ android {
 
         // For Kotlin users, also add the Kotlin extensions library for Play Feature Delivery:
         implementation("com.google.android.play:feature-delivery-ktx:2.1.0")
+        // Koin Core
+        implementation(libs.koin.core)
+
+        // Koin Test features
+        testImplementation(libs.koin.test)
+
+        // Koin for JUnit 4
+        testImplementation(libs.koin.test.junit4)
+
+        // Koin Android
+        implementation(libs.koin.android)
 
     }
