@@ -23,11 +23,12 @@ import com.besonganong.listquotesfeature.view.ui.components.ErrorIndicator
 import com.besonganong.listquotesfeature.view.ui.components.ProgressIndicator
 import com.besonganong.listquotesfeature.view.ui.components.VerticalGrid
 import com.besonganong.listquotesfeature.viewModel.QuotesViewModel
+import org.koin.androidx.compose.koinViewModel
 
 
 @Composable
 fun QuotesScreen(
-    quotesViewModel: QuotesViewModel
+    quotesViewModel: QuotesViewModel = koinViewModel()
 ) {
 
     val uiState: QuotesScreenState by quotesViewModel
