@@ -6,5 +6,5 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0" apply false
     kotlin("jvm") version "1.9.20" apply false
     kotlin("plugin.serialization") version "1.9.20" apply false
-
+    id("com.android.library") version "8.1.2" apply false
 }

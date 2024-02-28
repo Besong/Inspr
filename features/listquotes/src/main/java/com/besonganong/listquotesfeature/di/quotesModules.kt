@@ -61,8 +61,7 @@ val quotesModules = module {
     // ViewModel Module
     viewModel {
         QuotesViewModel(
-            quotesRepository = get(),
-            navigationManager = get())
+            quotesRepository = get())
     }
 
     // QuotesScreenNavComposableImpl Module
