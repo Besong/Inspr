@@ -3,6 +3,9 @@ package com.besonganong.listquotesfeature.view.ui.screens
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -21,7 +24,6 @@ import com.besonganong.listquotesfeature.utils.TestQuotes.quoteModel3
 import com.besonganong.listquotesfeature.utils.TestQuotes.quoteModel4
 import com.besonganong.listquotesfeature.view.ui.components.ErrorIndicator
 import com.besonganong.listquotesfeature.view.ui.components.ProgressIndicator
-import com.besonganong.listquotesfeature.view.ui.components.VerticalGrid
 import com.besonganong.listquotesfeature.viewModel.QuotesViewModel
 import org.koin.androidx.compose.koinViewModel
 
@@ -59,11 +61,14 @@ fun QuotesScreen(
 @Composable
 private fun QuoteGrid(quoteModels: List<QuoteModel>) {
 
-    VerticalGrid {
-        quoteModels.forEach { quote ->
-            Quote(quoteModel = quote)
-        }
-    }
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        content = {
+            items(quoteModels) { quote ->
+                Quote(quoteModel = quote)
+
+            }
+        })
 
 }
 
