@@ -13,11 +13,11 @@ object SslSettings {
 
         val certificateFactory = CertificateFactory.getInstance("X.509")
 
-        val keyStoreFile = context.resources.openRawResource(com.besonganong.inspr.R.raw.zenquotes)
+        val keyStoreFile = context.resources.openRawResource(com.besonganong.inspr.R.raw.isrg)
 
         lateinit var certificate: Certificate
-        keyStoreFile.use { keyStoreFile ->
-            certificate = certificateFactory.generateCertificate(keyStoreFile)
+        keyStoreFile.use {
+            certificate = certificateFactory.generateCertificate(it)
         }
 
         val keyStore: KeyStore = KeyStore.getInstance(KeyStore.getDefaultType())
