@@ -1,6 +1,5 @@
 package com.besonganong.listquotesfeature.viewModel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.besonganong.listquotesfeature.data.repository.QuotesRepository
@@ -36,7 +35,7 @@ class QuotesViewModel (
             quotesRepository.getQuotes()
                 .catch {cause ->
                     cause.message?.let {
-                        Log.e(this@QuotesViewModel.toString(), it)
+                      //  Log.e(this@QuotesViewModel.toString(), it)
                     }
 
                     _uiState.value = QuotesScreenState.Error
