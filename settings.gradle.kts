@@ -24,3 +24,4 @@ rootProject.name = "Inspr"
 include(":app")
 include(":features:listquotes")
 include(":navigation")
+include(":internet-connectivity")
