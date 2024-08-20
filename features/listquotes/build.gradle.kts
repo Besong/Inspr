@@ -107,4 +107,7 @@ dependencies {
 
     // navigation Module
     implementation(project(":navigation"))
+
+    // Internet Connectivity Module
+    implementation(project(":internet-connectivity"))
 }
