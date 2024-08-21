@@ -22,7 +22,7 @@ import com.besonganong.listquotesfeature.utils.TestQuotes.quoteModel1
 import com.besonganong.listquotesfeature.utils.TestQuotes.quoteModel2
 import com.besonganong.listquotesfeature.utils.TestQuotes.quoteModel3
 import com.besonganong.listquotesfeature.utils.TestQuotes.quoteModel4
-import com.besonganong.listquotesfeature.view.ui.components.ErrorIndicator
+import com.besonganong.listquotesfeature.view.ui.components.ErrorMessage
 import com.besonganong.listquotesfeature.view.ui.components.ProgressIndicator
 import com.besonganong.listquotesfeature.viewModel.QuotesViewModel
 import org.koin.androidx.compose.koinViewModel
@@ -49,7 +49,9 @@ fun QuotesScreen(
 
 
         is QuotesScreenState.Error -> {
-            ErrorIndicator(
+            val errorMessage = (uiState as QuotesScreenState.Error).resId
+            ErrorMessage(
+                errorMsg = errorMessage,
                 onErrorButtonClick = { quotesViewModel.onErrorButtonClick() })
 
         }
