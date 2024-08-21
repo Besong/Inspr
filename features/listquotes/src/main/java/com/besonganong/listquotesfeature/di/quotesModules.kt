@@ -1,6 +1,8 @@
 package com.besonganong.listquotesfeature.di
 
 import com.besonganong.NavGraphBuilderFactory
+import com.besonganong.connectivity.NetworkConnectionManager
+import com.besonganong.connectivity.NetworkConnectionManagerImpl
 import com.besonganong.listquotesfeature.QuotesScreenNavComposableImpl
 import com.besonganong.listquotesfeature.data.remote.apiClient.httpClient
 import com.besonganong.listquotesfeature.data.remote.datasource.QuotesRemoteDataSource
@@ -18,8 +20,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 // QuotesRespositoryImpl -> QDs( client, delayInterval), clientMapper, coroutineScope
-
-
+// NetworkConnectionManagerImpl -> context, coroutineScope
 val quotesModules = module {
 
     /** Network Module **/
@@ -58,10 +59,21 @@ val quotesModules = module {
         )
     }
 
+    /** NetworkConnection Manager Module **/
+    single<NetworkConnectionManager> {
+
+        NetworkConnectionManagerImpl(
+            context = get(),
+            coroutineScope = CoroutineScope(Dispatchers.Default)
+        )
+    }
+
     // ViewModel Module
     viewModel {
         QuotesViewModel(
-            quotesRepository = get())
+            quotesRepository = get(),
+            networkConnectionManager = get()
+        )
     }
 
     // QuotesScreenNavComposableImpl Module
